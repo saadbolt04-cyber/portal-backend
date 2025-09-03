@@ -9,11 +9,14 @@ const seedDatabase = async () => {
   try {
     console.log('🔌 Connecting to MongoDB...');
     
+    if (!process.env.MONGODB_URI) {
+      throw new Error('MONGODB_URI environment variable is not defined');
+    }
+    
+    console.log('📍 Using MongoDB URI:', process.env.MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, '//***:***@'));
+    
     // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 10000, // 10 second timeout
-      socketTimeoutMS: 45000, // 45 second socket timeout
-    });
+    await mongoose.connect(process.env.MONGODB_URI);
     console.log('✅ Connected to MongoDB for seeding');
 
     // Seed companies
