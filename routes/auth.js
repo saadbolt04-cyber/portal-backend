@@ -1,17 +1,17 @@
-const express = require('express');
-const { body, validationResult } = require('express-validator');
-const crypto = require('crypto');
-const speakeasy = require('speakeasy');
-const QRCode = require('qrcode');
-const sendEmail = require('../utils/sendEmail');
-const generateToken = require('../utils/generateToken');
-const { getWelcomeEmailTemplate, getPasswordResetEmailTemplate } = require('../utils/emailTemplates');
-const { protect, generateTokenWithVersion, getClientIP } = require('../middleware/auth');
-const { requireEmailVerification } = require('../middleware/emailVerification');
-const { validateCompanyDomain } = require('../middleware/domainValidation');
-const User = require('../models/User');
-const Company = require('../models/Company');
-const LoginHistory = require('../models/LoginHistory');
+import express from 'express';
+import { body, validationResult } from 'express-validator';
+import crypto from 'crypto';
+import speakeasy from 'speakeasy';
+import QRCode from 'qrcode';
+import sendEmail from '../utils/sendEmail.js';
+import generateToken from '../utils/generateToken.js';
+import { getWelcomeEmailTemplate, getPasswordResetEmailTemplate } from '../utils/emailTemplates.js';
+import { protect, generateTokenWithVersion, getClientIP } from '../middleware/auth.js';
+import { requireEmailVerification } from '../middleware/emailVerification.js';
+import { validateCompanyDomain } from '../middleware/domainValidation.js';
+import User from '../models/User.js';
+import Company from '../models/Company.js';
+import LoginHistory from '../models/LoginHistory.js';
 
 const router = express.Router();
 
@@ -1035,4 +1035,4 @@ router.post('/logout', protect, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

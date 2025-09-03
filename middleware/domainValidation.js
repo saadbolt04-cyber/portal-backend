@@ -1,4 +1,4 @@
-const Company = require('../models/Company');
+import Company from '../models/Company.js';
 
 // Check if email domain is allowed
 const validateCompanyDomain = async (req, res, next) => {
@@ -47,4 +47,4 @@ const validateCompanyDomain = async (req, res, next) => {
   }
 };
 
-module.exports = { validateCompanyDomain };
+export { validateCompanyDomain };

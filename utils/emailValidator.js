@@ -1,4 +1,4 @@
-const dns = require('dns').promises;
+import { promises as dns } from 'dns';
 
 // Enhanced email validation
 const validateEmailDomain = async (email) => {
@@ -28,7 +28,7 @@ const isDisposableEmail = (email) => {
   return disposableEmailDomains.includes(domain);
 };
 
-module.exports = {
+export {
   validateEmailDomain,
   isDisposableEmail
 };

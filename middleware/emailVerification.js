@@ -1,4 +1,4 @@
-const User = require('../models/User');
+import User from '../models/User.js';
 
 // Middleware to check if email is verified for protected routes
 const requireEmailVerification = async (req, res, next) => {
@@ -19,4 +19,4 @@ const requireEmailVerification = async (req, res, next) => {
   }
 };
 
-module.exports = { requireEmailVerification };
+export { requireEmailVerification };

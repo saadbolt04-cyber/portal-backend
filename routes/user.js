@@ -1,8 +1,8 @@
-const express = require('express');
-const { body, validationResult } = require('express-validator');
-const User = require('../models/User');
-const { protect, admin, generateTokenWithVersion } = require('../middleware/auth');
-const { requireEmailVerification } = require('../middleware/emailVerification');
+import express from 'express';
+import { body, validationResult } from 'express-validator';
+import User from '../models/User.js';
+import { protect, admin, generateTokenWithVersion } from '../middleware/auth.js';
+import { requireEmailVerification } from '../middleware/emailVerification.js';
 
 const router = express.Router();
 
@@ -191,4 +191,4 @@ router.get('/all', protect, admin, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

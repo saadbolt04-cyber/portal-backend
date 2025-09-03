@@ -104,7 +104,7 @@ const getPasswordResetEmailTemplate = (firstName, resetUrl) => {
   `;
 };
 
-module.exports = {
+export {
   getWelcomeEmailTemplate,
   getPasswordResetEmailTemplate
 };

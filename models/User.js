@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const crypto = require('crypto');
-const speakeasy = require('speakeasy');
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
+import speakeasy from 'speakeasy';
 
 const userSchema = new mongoose.Schema({
   firstName: {
@@ -184,4 +184,4 @@ userSchema.methods.invalidateAllTokens = function() {
   return this.save({ validateBeforeSave: false });
 };
 
-module.exports = mongoose.model('User', userSchema);
+export default mongoose.model('User', userSchema);

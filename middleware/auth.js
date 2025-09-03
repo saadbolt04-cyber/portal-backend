@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
 // Get client IP address
 const getClientIP = (req) => {
@@ -101,4 +101,4 @@ const admin = (req, res, next) => {
   }
 };
 
-module.exports = { protect, admin, generateTokenWithVersion, getClientIP };
+export { protect, admin, generateTokenWithVersion, getClientIP };

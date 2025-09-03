@@ -1,4 +1,4 @@
-const User = require('../models/User');
+import User from '../models/User.js';
 
 // Middleware to check 2FA requirement
 const requireTwoFactor = async (req, res, next) => {
@@ -20,4 +20,4 @@ const requireTwoFactor = async (req, res, next) => {
   }
 };
 
-module.exports = { requireTwoFactor };
+export { requireTwoFactor };

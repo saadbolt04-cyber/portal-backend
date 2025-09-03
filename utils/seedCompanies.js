@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Company = require('../models/Company');
+import mongoose from 'mongoose';
+import Company from '../models/Company.js';
 
 const companies = [
   {
@@ -71,4 +71,4 @@ const seedCompanies = async () => {
   }
 };
 
-module.exports = { seedCompanies, companies };
+export { seedCompanies, companies };
