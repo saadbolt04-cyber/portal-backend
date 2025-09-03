@@ -48,21 +48,26 @@ const companies = [
 
 const seedCompanies = async () => {
   try {
+    console.log('🌱 Starting database seeding...');
+    
     // Clear existing companies
+    const deletedCount = await Company.countDocuments();
     await Company.deleteMany({});
+    console.log(`🗑️  Cleared ${deletedCount} existing companies`);
     
     // Insert new companies
-    await Company.insertMany(companies);
+    const insertedCompanies = await Company.insertMany(companies);
     
-    console.log('Companies seeded successfully');
-    console.log(`Added ${companies.length} companies to the database`);
+    console.log('✅ Companies seeded successfully');
+    console.log(`📊 Added ${insertedCompanies.length} companies to the database:`);
     
     companies.forEach(company => {
-      console.log(`- ${company.name} (${company.domain})`);
+      console.log(`   ✓ ${company.name} (${company.domain})`);
     });
     
   } catch (error) {
-    console.error('Error seeding companies:', error);
+    console.error('❌ Error seeding companies:', error.message);
+    throw error;
   }
 };
 

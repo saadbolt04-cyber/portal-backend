@@ -1,7 +1,7 @@
 const Company = require('../models/Company');
 
 // Check if email domain is allowed
-const validateCompanyDomain = (req, res, next) => {
+const validateCompanyDomain = async (req, res, next) => {
   try {
     const { email } = req.body;
     

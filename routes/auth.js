@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const speakeasy = require('speakeasy');
 const QRCode = require('qrcode');
 const sendEmail = require('../utils/sendEmail');
+const generateToken = require('../utils/generateToken');
 const { getWelcomeEmailTemplate, getPasswordResetEmailTemplate } = require('../utils/emailTemplates');
 const { protect, generateTokenWithVersion, getClientIP } = require('../middleware/auth');
 const { requireEmailVerification } = require('../middleware/emailVerification');

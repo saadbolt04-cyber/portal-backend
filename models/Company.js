@@ -14,7 +14,7 @@ const companySchema = new mongoose.Schema({
     lowercase: true,
     trim: true,
     match: [
-      /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/,
+      /^[a-zA-Z0-9][a-zA-Z0-9.-]*[a-zA-Z0-9]\.[a-zA-Z]{2,}$/,
       'Please enter a valid domain'
     ]
   },
@@ -40,8 +40,5 @@ const companySchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
-
-// Index for faster domain lookups
-companySchema.index({ domain: 1 });
 
 module.exports = mongoose.model('Company', companySchema);
